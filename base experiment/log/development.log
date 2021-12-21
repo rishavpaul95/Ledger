@@ -7771,3 +7771,229 @@ Processing by CalculationsController#index as HTML
 Completed 200 OK in 18ms (Views: 17.3ms | ActiveRecord: 0.4ms | Allocations: 13625)
 
 
+Started GET "/" for 127.0.0.1 at 2021-12-21 12:26:38 +0530
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CalculationsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering calculations/index.html.erb within layouts/application
+  Rendered calculations/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 838)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_nav.html.erb (Duration: 1.0ms | Allocations: 487)
+  Rendered layout layouts/application.html.erb (Duration: 46.6ms | Allocations: 20385)
+Completed 200 OK in 55ms (Views: 48.4ms | ActiveRecord: 0.0ms | Allocations: 25018)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-12-21 12:26:40 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 900)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 7.3ms | Allocations: 6321)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_nav.html.erb (Duration: 0.3ms | Allocations: 183)
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 10056)
+Completed 200 OK in 25ms (Views: 19.2ms | ActiveRecord: 0.5ms | Allocations: 16632)
+
+
+Started POST "/users/auth/github" for 127.0.0.1 at 2021-12-21 12:26:43 +0530
+Started GET "/users/auth/github/callback?error=redirect_uri_mismatch&error_description=The+redirect_uri+MUST+match+the+registered+callback+URL+for+this+application.&error_uri=https%3A%2F%2Fdocs.github.com%2Fapps%2Fmanaging-oauth-apps%2Ftroubleshooting-authorization-request-errors%2F%23redirect-uri-mismatch&state=91907d903e7232fa67d7a64cb1aba1143b6ee8ea3ce79792" for ::1 at 2021-12-21 12:26:43 +0530
+Processing by Users::OmniauthCallbacksController#failure as HTML
+  Parameters: {"error"=>"redirect_uri_mismatch", "error_description"=>"The redirect_uri MUST match the registered callback URL for this application.", "error_uri"=>"https://docs.github.com/apps/managing-oauth-apps/troubleshooting-authorization-request-errors/#redirect-uri-mismatch", "state"=>"91907d903e7232fa67d7a64cb1aba1143b6ee8ea3ce79792"}
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms | Allocations: 589)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-12-21 12:26:43 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.8ms | Allocations: 291)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1229)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_nav.html.erb (Duration: 0.5ms | Allocations: 157)
+  Rendered layout layouts/application.html.erb (Duration: 11.6ms | Allocations: 4892)
+Completed 200 OK in 15ms (Views: 12.5ms | ActiveRecord: 0.0ms | Allocations: 5682)
+
+
+Started POST "/users/auth/google_oauth2" for ::1 at 2021-12-21 12:26:44 +0530
+Started GET "/users/auth/google_oauth2/callback?state=0c7532cb784c8d5346ee045ae3926c57492f7b8921eb9800&code=4/0AX4XfWg3ZqfvwpJnuqkMwOdtR7QPkgM98D286aXhM7UBIMBD1nx2mBQ7f5B7qM1bCrXVvw&scope=email%20profile%20openid%20https://www.googleapis.com/auth/userinfo.profile%20https://www.googleapis.com/auth/userinfo.email&authuser=0&prompt=none" for ::1 at 2021-12-21 12:26:46 +0530
+Processing by Users::OmniauthCallbacksController#google_oauth2 as HTML
+  Parameters: {"state"=>"0c7532cb784c8d5346ee045ae3926c57492f7b8921eb9800", "code"=>"4/0AX4XfWg3ZqfvwpJnuqkMwOdtR7QPkgM98D286aXhM7UBIMBD1nx2mBQ7f5B7qM1bCrXVvw", "scope"=>"email profile openid https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email", "authuser"=>"0", "prompt"=>"none"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "deathfrost005@gmail.com"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:12:in `from_omniauth'
+Redirected to http://localhost:3000/
+Completed 302 Found in 12ms (ActiveRecord: 0.5ms | Allocations: 2206)
+
+
+Started GET "/" for ::1 at 2021-12-21 12:26:47 +0530
+Processing by CalculationsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering calculations/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:1
+  [1m[36mCalculation Load (0.2ms)[0m  [1m[34mSELECT "calculations".* FROM "calculations"[0m
+  ↳ app/views/calculations/index.html.erb:19
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  Rendered calculations/index.html.erb within layouts/application (Duration: 74.8ms | Allocations: 16301)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 125)
+  Rendered layout layouts/application.html.erb (Duration: 78.6ms | Allocations: 19875)
+Completed 200 OK in 81ms (Views: 78.1ms | ActiveRecord: 1.3ms | Allocations: 20459)
+
+
+Started GET "/calculations/new" for ::1 at 2021-12-21 12:26:55 +0530
+Processing by CalculationsController#new as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  Rendering layout layouts/application.html.erb
+  Rendering calculations/new.html.erb within layouts/application
+  Rendered calculations/_form.html.erb (Duration: 9.0ms | Allocations: 1941)
+  Rendered calculations/new.html.erb within layouts/application (Duration: 12.1ms | Allocations: 2371)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_nav.html.erb (Duration: 0.3ms | Allocations: 117)
+  Rendered layout layouts/application.html.erb (Duration: 21.8ms | Allocations: 6164)
+Completed 200 OK in 34ms (Views: 23.3ms | ActiveRecord: 0.2ms | Allocations: 8538)
+
+
+Started POST "/calculations" for ::1 at 2021-12-21 12:27:00 +0530
+Processing by CalculationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "calculation"=>{"value"=>"", "description"=>"", "boolean"=>"12", "user_id"=>"6"}, "commit"=>"Create Calculation"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+[31mUnpermitted parameter: :boolean[0m
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/calculations_controller.rb:30:in `block in create'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/calculations_controller.rb:30:in `block in create'
+  [1m[36mCalculation Create (0.2ms)[0m  [1m[32mINSERT INTO "calculations" ("value", "description", "created_at", "updated_at", "user_id") VALUES (?, ?, ?, ?, ?)[0m  [["value", ""], ["description", ""], ["created_at", "2021-12-21 06:57:00.895399"], ["updated_at", "2021-12-21 06:57:00.895399"], ["user_id", 6]]
+  ↳ app/controllers/calculations_controller.rb:30:in `block in create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/calculations_controller.rb:30:in `block in create'
+Redirected to http://localhost:3000/calculations/19
+Completed 302 Found in 12ms (ActiveRecord: 1.9ms | Allocations: 7602)
+
+
+Started GET "/calculations/19" for ::1 at 2021-12-21 12:27:00 +0530
+Processing by CalculationsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mCalculation Load (0.1ms)[0m  [1m[34mSELECT "calculations".* FROM "calculations" WHERE "calculations"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/calculations_controller.rb:66:in `set_calculation'
+  Rendering layout layouts/application.html.erb
+  Rendering calculations/show.html.erb within layouts/application
+  Rendered calculations/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 305)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/_nav.html.erb:10
+  Rendered layouts/_nav.html.erb (Duration: 1.6ms | Allocations: 1013)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 4692)
+Completed 200 OK in 7ms (Views: 5.3ms | ActiveRecord: 0.2ms | Allocations: 6081)
+
+
+Started GET "/calculations" for ::1 at 2021-12-21 12:27:03 +0530
+Processing by CalculationsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering calculations/index.html.erb within layouts/application
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:1
+  [1m[36mCalculation Load (0.1ms)[0m  [1m[34mSELECT "calculations".* FROM "calculations"[0m
+  ↳ app/views/calculations/index.html.erb:19
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  Rendered calculations/index.html.erb within layouts/application (Duration: 15.5ms | Allocations: 10969)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 116)
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | Allocations: 14456)
+Completed 200 OK in 19ms (Views: 18.7ms | ActiveRecord: 0.3ms | Allocations: 14931)
+
+
+Started GET "/calculations/19" for ::1 at 2021-12-21 12:27:09 +0530
+Processing by CalculationsController#show as HTML
+  Parameters: {"id"=>"19"}
+  [1m[36mCalculation Load (0.1ms)[0m  [1m[34mSELECT "calculations".* FROM "calculations" WHERE "calculations"."id" = ? LIMIT ?[0m  [["id", 19], ["LIMIT", 1]]
+  ↳ app/controllers/calculations_controller.rb:66:in `set_calculation'
+  Rendering layout layouts/application.html.erb
+  Rendering calculations/show.html.erb within layouts/application
+  Rendered calculations/show.html.erb within layouts/application (Duration: 0.4ms | Allocations: 120)
+[Webpacker] Everything's up-to-date. Nothing to do
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/layouts/_nav.html.erb:10
+  Rendered layouts/_nav.html.erb (Duration: 2.0ms | Allocations: 1011)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | Allocations: 5122)
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 0.2ms | Allocations: 6150)
+
+
+Started GET "/calculations" for ::1 at 2021-12-21 12:27:11 +0530
+Processing by CalculationsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering calculations/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:1
+  [1m[36mCalculation Load (0.3ms)[0m  [1m[34mSELECT "calculations".* FROM "calculations"[0m
+  ↳ app/views/calculations/index.html.erb:19
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:20
+  Rendered calculations/index.html.erb within layouts/application (Duration: 26.2ms | Allocations: 10932)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_nav.html.erb (Duration: 0.1ms | Allocations: 116)
+  Rendered layout layouts/application.html.erb (Duration: 29.8ms | Allocations: 14421)
+Completed 200 OK in 32ms (Views: 29.7ms | ActiveRecord: 1.0ms | Allocations: 14895)
+
+
