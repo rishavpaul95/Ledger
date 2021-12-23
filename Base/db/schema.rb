@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_12_14_071735) do
+ActiveRecord::Schema.define(version: 2021_12_21_145638) do
 
   create_table "calculations", force: :cascade do |t|
     t.string "value"
@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(version: 2021_12_14_071735) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+    t.string "status_type"
+    t.date "stage"
+    t.datetime "transaction_date"
     t.index ["user_id"], name: "index_calculations_on_user_id"
   end
 

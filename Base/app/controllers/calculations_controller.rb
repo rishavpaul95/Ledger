@@ -68,6 +68,6 @@ class CalculationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def calculation_params
-      params.require(:calculation).permit(:value, :description, :user_id)
+      params.require(:calculation).permit(:value, :description, :user_id, :status_type, :transaction_date)
     end
 end
