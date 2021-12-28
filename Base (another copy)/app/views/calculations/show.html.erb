@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<div class="jumbotron">
+  <h1 class="display-4"><strong>Value:</strong>
+  <%= @calculation.value %>
+</p></h1>
+  <p class="lead display-6"><strong>Description:</strong>
+  <%= @calculation.description %></p>
+</div>
+
+
+<%= link_to 'Edit', edit_calculation_path(@calculation),class:"btn btn-light" %> |
+<%= link_to 'Back', calculations_path, class:"btn btn-light" %>
