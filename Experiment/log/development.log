@@ -20318,3 +20318,87 @@ Started GET "/app/assets/stylesheets/styles.css" for 127.0.0.1 at 2021-12-28 20:
   
 ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/styles.css"):
   
+Started GET "/" for 127.0.0.1 at 2021-12-29 04:36:39 +0530
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CalculationsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering calculations/index.html.erb within layouts/application
+  Rendered calculations/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 834)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_nav.html.erb (Duration: 0.7ms | Allocations: 487)
+  Rendered layout layouts/application.html.erb (Duration: 22.0ms | Allocations: 10544)
+Completed 200 OK in 32ms (Views: 24.2ms | ActiveRecord: 0.0ms | Allocations: 15207)
+
+
+Started GET "/app/assets/stylesheets/styles.css" for 127.0.0.1 at 2021-12-29 04:36:40 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/styles.css"):
+  
+Started GET "/app/assets/images/Background.jpg" for 127.0.0.1 at 2021-12-29 04:36:40 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/images/Background.jpg"):
+  
+Started GET "/users/sign_in" for 127.0.0.1 at 2021-12-29 04:36:42 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.1ms | Allocations: 900)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 8.9ms | Allocations: 6040)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_nav.html.erb (Duration: 0.2ms | Allocations: 182)
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 9635)
+Completed 200 OK in 21ms (Views: 14.7ms | ActiveRecord: 0.4ms | Allocations: 16078)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2021-12-29 04:36:44 +0530
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"rishavpaul1995@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "rishavpaul1995@gmail.com"], ["LIMIT", 1]]
+Redirected to http://127.0.0.1:3000/
+Completed 302 Found in 216ms (ActiveRecord: 0.4ms | Allocations: 5664)
+
+
+Started GET "/" for 127.0.0.1 at 2021-12-29 04:36:44 +0530
+Processing by CalculationsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering calculations/index.html.erb within layouts/application
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:1
+  [1m[36mCalculation Load (0.2ms)[0m  [1m[34mSELECT "calculations".* FROM "calculations"[0m
+  ↳ app/views/calculations/index.html.erb:18
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:19
+  [1m[36mUser Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:19
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/views/calculations/index.html.erb:19
+  Rendered calculations/index.html.erb within layouts/application (Duration: 23.3ms | Allocations: 18222)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layouts/_nav.html.erb (Duration: 0.1ms | Allocations: 125)
+  Rendered layout layouts/application.html.erb (Duration: 26.7ms | Allocations: 21654)
+Completed 200 OK in 27ms (Views: 26.0ms | ActiveRecord: 1.0ms | Allocations: 22211)
+
+
+Started GET "/app/assets/stylesheets/styles.css" for 127.0.0.1 at 2021-12-29 04:36:44 +0530
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/stylesheets/styles.css"):
+  
