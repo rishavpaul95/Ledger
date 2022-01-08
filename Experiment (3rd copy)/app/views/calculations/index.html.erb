@@ -1,0 +1,119 @@
+<% if user_signed_in? %>
+  <p id="notice"><%= notice %></p>
+
+  <h1>Calculations</h1>
+
+  <table class = "table table-striped table-bordered table-hover text-center">
+    <thead class = "table-dark">
+      <tr>
+        <th>Value</th>
+        <th>Description</th>
+        <th>Transaction</th>
+        <th>Date</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @calculations.each do |calculation| %>
+        <% if calculation.user == current_user %>
+          <tr>
+            <td><%= calculation.value %></td>
+            <td><%= calculation.description %></td>
+            <td><%= calculation.status_type %></td>
+            <td><%= calculation.transaction_date %></td>
+            <td><%= link_to 'Show', calculation %></td>
+            <td><%= link_to 'Edit', edit_calculation_path(calculation) %></td>
+            <td><%= link_to 'Destroy', calculation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+
+  
+  <button id="toggle">Show/Hide Add Record</button>
+  <div id="item">
+
+    <%= form_with(model: Calculation.new) do |form| %>
+      <div class="field", id = 'scr'>
+        <%= form.label :value %>
+        <%= form.text_field :value %>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Calculate
+        </button>
+      </div>
+
+      <div class="field">
+        <%= form.label :description %>
+        <%= form.text_area :description %>
+      </div>
+
+      <div class="field">
+        <%= form.label :transaction_date %>
+        <%= form.datetime_select :transaction_date %>
+      </div>
+
+
+      <div class="control-group">
+        <%= form.label "Status", class: 'control-label'%>
+        <div class="controls">
+          <%= form.select(:status_type, options_for_select([['PAID', 'PAID'],['RECIEVED', 'RECEIVED']])) %>
+        </div>
+      </div>
+
+      <div class="field form-group">
+        <%= form.number_field :user_id, id: :calculation_user_id, class: "form-control", value: current_user.id , type: :hidden %>
+      </div>
+      
+
+      <div class="actions ">
+        <%= form.submit %>
+      </div>
+    <% end %>
+
+
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Calculator</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= render 'calculator' %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <style>
+  #item{
+    display: none;
+  }
+  </style>
+  <script>
+    const targetDiv = document.getElementById("item");
+    const btn = document.getElementById("toggle");
+    btn.onclick = function () {
+    if (targetDiv.style.display !== "none") {
+        targetDiv.style.display = "none";
+      } else {
+        targetDiv.style.display = "block";
+      }
+    };
+  </script>
+
+
+<% else %>
+  <div class="p-5 mt-5 text-center bg-secondary text-white">
+    <h1>Welcome!!</h1>
+    Sign-In or Sign-Up to crunch some numbers!
+  </div>
+
+<% end %>
