@@ -1,0 +1,14 @@
+<div id="calendar">  
+    <%= calendar do |date| %>
+        <%= date.day %>
+        <% if @calculations_by_date[date] %>
+            <ul>
+                <% @calculations_by_date[date].each do |calculation| %>
+                    <li> <%= link_to calculation.description, calculation %> </li>
+
+                <%end%>
+            </ul>
+        <% end %>
+    <% end %>
+
+</div>

@@ -1,0 +1,180 @@
+<div class="month">
+  <ul>
+    <li class="prev" onclick="selectPreviousMonth()">&#10094;</li>
+    <li class="next" onclick="selectNextMonth()">&#10095;</li>
+    <li id="current-month"></li>
+  </ul>
+</div>
+<ul class="days" id="days"></ul>
+
+
+
+<style>
+  body {
+    margin: 0;
+    font-family: Verdana, sans-serif;
+  }
+  ul {
+    list-style-type: none;
+  }
+
+  /* Month header */
+  .month {
+    box-sizing: border-box;
+    padding: 70px 25px;
+    width: 100%;
+    background: #1abc9c;
+    text-align: center;
+  }
+
+  /* Month list */
+  .month ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  .month ul li {
+    color: white;
+    font-size: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+  }
+
+  /* Previous button inside month header */
+  .month .prev {
+    float: left;
+    padding-top: 10px;
+  }
+
+  /* Next button */
+  .month .next {
+    float: right;
+    padding-top: 10px;
+  }
+
+  /* Days (1-31) */
+  .days {
+    padding: 10px 0;
+    background: #eee;
+    margin: 0;
+  }
+
+  .days li {
+    list-style-type: none;
+    display: inline-block;
+    width: 13.6%;
+    height: 100px;
+    margin-top: 10px;
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 12px;
+    color: #777;
+    cursor: pointer;
+  }
+
+  /* Highlight the "current" day */
+  .days li.active {
+    background: #1abc9c;
+    color: white;
+  }
+
+  .prev,
+  .next {
+    cursor: pointer;
+  }
+
+</style>
+
+<script>
+
+  // Made for clear use not efficiency
+  const daysEl = document.getElementById("days");
+  const currentMonthEl = document.getElementById("current-month");
+
+  var currentDate = new Date();
+  var selectedDate = new Date();
+  var selectedElement = document.getElementsByClassName("selected")[0];
+
+  // get the number of days in a month
+  function getDaysInMonth(year, month) {
+    return new Date(year, month + 1, 0).getDate();
+  }
+
+  // add all days in month as list elements in daysEl
+  function addDays() {
+    const daysInMonth = getDaysInMonth(
+      selectedDate.getFullYear(),
+      selectedDate.getMonth()
+    );
+    for (let i = 1; i <= daysInMonth; i++) {
+      const dayEl = document.createElement("li");
+      dayEl.textContent = i;
+      dayEl.classList.add("day");
+      daysEl.appendChild(dayEl);
+    }
+  }
+
+  // clear days
+  function clearDays() {
+    while (daysEl.firstChild) {
+      daysEl.removeChild(daysEl.firstChild);
+    }
+  }
+
+  // set current month and year in currentMonthEl
+  function addMonth() {
+    currentMonthEl.textContent = `${selectedDate.toLocaleString("default", {
+      month: "long"
+    })} ${selectedDate.getFullYear()}`;
+  }
+
+  // select previous month
+  function selectPreviousMonth() {
+    if (selectedDate.getMonth() === 0) {
+      selectedDate.setFullYear(selectedDate.getFullYear() - 1);
+      selectedDate.setMonth(11);
+    } else {
+      selectedDate.setMonth(selectedDate.getMonth() - 1);
+    }
+    addMonth();
+    clearDays();
+    addDays();
+  }
+
+  // select next month
+  function selectNextMonth() {
+    if (selectedDate.getMonth() === 11) {
+      selectedDate.setFullYear(selectedDate.getFullYear() + 1);
+      selectedDate.setMonth(0);
+    } else {
+      selectedDate.setMonth(selectedDate.getMonth() + 1);
+    }
+    addMonth();
+    clearDays();
+    addDays();
+  }
+
+  // add event listeners on daysEl
+  daysEl.addEventListener("click", function (e) {
+    if (e.target.tagName === "LI") {
+      selectedDate.setDate(e.target.textContent);
+      selectedElement = e.target;
+      selectDate();
+    }
+  });
+
+  // add active class to selected date
+  function selectDate(e) {
+    const days = document.getElementsByClassName("day");
+    for (let i = 0; i < days.length; i++) {
+      days[i].classList.remove("active");
+    }
+    if (selectedElement) {
+      selectedElement.classList.add("active");
+    }
+  }
+
+  addMonth();
+  addDays();
+
+</script>
