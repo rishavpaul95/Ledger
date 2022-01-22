@@ -2,13 +2,15 @@ class CalculationsController < ApplicationController
   before_action :set_calculation, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, except: [:index, :show]
   
- 
+  def calendar2
+    @search = CalculationSearch.new(params[:search])
+    @calculations =@search.scope
+  end
   
   # GET /calculations or /calculations.json
   def index
-    @calculations = Calculation.all
-    @calculattions_by_date = @calculations.group_by(&:transaction_date)
-    @date = Date.today
+    @search = CalculationSearch.new(params[:search])
+    @calculations =@search.scope
   end
 
   # GET /calculations/1 or /calculations/1.json
