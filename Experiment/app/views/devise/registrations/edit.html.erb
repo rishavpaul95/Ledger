@@ -1,14 +1,15 @@
 
-<div id="dvCalendar" style="display: block"> 
+<div class="bg-dark text-light mx-auto my-5 mt-4 p-3"id="dvCalendar" style="display: block"> 
    
   <h1 class="text-center"> User </h1>
+  <hr>
   <div class="text-center">
-    <h3>Name : <%= current_user.name %>
+    <h5>Name : <%= current_user.name %>
     <br>
     Email :   <%= current_user.email %>
     <br>
-    Time Zone : <%= current_user.time_zone %>
-    </h3>
+    Prefered Time Zone : <%= current_user.time_zone %>
+    </h5>
   </div>
 </div>
 
