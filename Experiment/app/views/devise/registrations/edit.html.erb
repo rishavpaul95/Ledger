@@ -6,6 +6,8 @@
     <h3>Name : <%= current_user.name %>
     <br>
     Email :   <%= current_user.email %>
+    <br>
+    Time Zone : <%= current_user.time_zone %>
     </h3>
   </div>
 </div>
@@ -56,6 +58,11 @@
   <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
+  </div>
+
+   <div class="field">
+    <%= f.label :time_zone %><br />
+    <%= f.time_zone_select :time_zone %>
   </div>
 
   <div class="actions">
